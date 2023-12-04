@@ -1,3 +1,129 @@
+2022-11-20, Version 7.0.0-alpha.1
+=================================
+
+ * ci: update Node.js test matrix (Rifa Achrinza)
+
+ * chore: update Node.js engine matrix (Rifa Achrinza)
+
+ * feat: upgrade mongodb driver to version 4.x (Antonio Ramón Sánchez Morales)
+
+ * chore: lock file maintenance (renovate[bot])
+
+ * chore: update supercharge/mongodb-github-action action to v1.8.0 (renovate[bot])
+
+ * chore: update dependency eslint to ^8.23.0 (renovate[bot])
+
+ * chore: update commitlint monorepo to v17 (renovate[bot])
+
+ * chore: update dependency eslint to ^8.19.0 (renovate[bot])
+
+ * chore: update github/codeql-action action to v2 (renovate[bot])
+
+ * chore: update dependency mocha to ^9.2.2 (renovate[bot])
+
+ * chore: update dependency loopback-datasource-juggler to ^4.27.1 (renovate[bot])
+
+ * chore: update dependency eslint to ^8.18.0 (renovate[bot])
+
+ * chore: update dependency strong-globalize to ^6.0.5 (renovate[bot])
+
+ * chore: update supercharge/mongodb-github-action action to v1.7.0 (renovate[bot])
+
+ * chore: update actions/setup-node action to v3 (renovate[bot])
+
+ * chore: update actions/checkout action to v3 (renovate[bot])
+
+ * chore: update dependency semver to ^7.3.7 (renovate[bot])
+
+ * chore: update dependency should to ^13.2.3 (renovate[bot])
+
+ * chore: update dependency debug to ^4.3.4 (renovate[bot])
+
+ * chore: update dependency loopback-connector to ^5.0.1 (renovate[bot])
+
+ * chore: update dependency bson to ^1.1.6 (renovate[bot])
+
+ * chore: update dependency bluebird to ^3.7.2 (renovate[bot])
+
+ * chore: update dependency async to ^3.2.4 (renovate[bot])
+
+ * ci: add renovate config (Rifa Achrinza)
+
+ * fix(*): run autoupdate in serial to avoid conflicts (Simon Stone)
+
+ * fix: optional chaining (preussmann)
+
+ * chore: update v6 EOL (Rifa Achrinza)
+
+ * ci: test against Node.js v18 (Rifa Achrinza)
+
+
+2022-03-31, Version 6.2.0
+=========================
+
+ * docs: add SECURITY.md (Diana Lau)
+
+ * chore: tls README example (d-bo)
+
+ * docs: update coc (Diana Lau)
+
+ * docs: add code of conduct (Diana Lau)
+
+ * chore: update v6 EOL (Rifa Achrinza)
+
+ * ci: fix typo (Rifa Achrinza)
+
+ * chore: update deps (Rifa Achrinza)
+
+ * feat: add tls options as of mongo 3.7 (d-bo)
+
+ * ci: update Node.js version (Rifa Achrinza)
+
+ * ci: pin NPM version (Rifa Achrinza)
+
+ * chore: add @achrinza and update CODEOWNERS (Diana Lau)
+
+ * fix: isObjectIDProperty array param check (Rifa Achrinza)
+
+ * fix: handle url default db name (Rifa Achrinza)
+
+ * ci: restrict GITHUB_TOKEN permissions (Rifa Achrinza)
+
+
+2021-09-07, Version 6.1.0
+=========================
+
+ * ci: misc updates (Rifa Achrinza)
+
+ * feat: add transaction support (Sergey Nosenko)
+
+ * ci: align gh actions workflow with 5.x (Rifa Achrinza)
+
+ * chore: move repo to loopbackio org (Diana Lau)
+
+
+2021-05-03, Version 6.0.1
+=========================
+
+ * fix: allows fields filter with custom field name (louis.nguyen)
+
+ * README: update notes about 6.0 (Miroslav Bajtoš)
+
+
+2021-03-22, Version 6.0.0
+=========================
+
+ * coerce values of array defined as ObjectID type (=)
+
+ * Update mongodb to ^3.6.4 (wolrajhti)
+
+ * ci: convert from Travis to Github action ci (Agnes Lin)
+
+ * README: mention our work on 6.0 (Miroslav Bajtoš)
+
+ * [SEMVER-MAJOR] Drop support for LoopBack 3.x (Yaapa Hage)
+
+
 2020-12-01, Version 5.5.0
 =========================
 

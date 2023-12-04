@@ -127,20 +127,14 @@ describe('connect', function() {
         if (err) return done(err);
         const id = success.insertedId;
         ds.connector.should.have.property('db');
-        ds.connector.db.should.have.property('topology');
-        ds.connector.db.topology.should.have.property('isDestroyed');
-        ds.connector.db.topology.isDestroyed().should.be.False();
+
         ds.connector.disconnect(function(err) {
           if (err) return done(err);
-          // [NOTE] isDestroyed() is not implemented by NativeTopology
-          // When useUnifiedTopology is true
-          // ds.connector.db.topology.isDestroyed().should.be.True();
           ds.connector.execute('TestLazy', 'findOne', {_id: id}, function(
             err,
             data,
           ) {
             if (err) return done(err);
-            // ds.connector.db.topology.isDestroyed().should.be.False();
             done();
           });
         });
@@ -1330,7 +1324,7 @@ describe('mongodb connector', function() {
             {$rename: {name: 'firstname'}},
             function(err, updatedusers) {
               should.exist(err);
-              err.name.should.equal('MongoError');
+              err.name.should.equal('MongoServerError');
               err.errmsg.should.equal(
                 'The dollar ($) prefixed ' +
                 "field '$rename' in '$rename' is not valid for storage.",
@@ -1355,7 +1349,7 @@ describe('mongodb connector', function() {
             {$rename: {name: 'firstname'}},
             function(err, updatedusers) {
               should.exist(err);
-              err.name.should.equal('MongoError');
+              err.name.should.equal('MongoServerError');
               err.errmsg.should.equal(
                 'The dollar ($) prefixed ' +
                 "field '$rename' in '$rename' is not valid for storage.",
@@ -1412,7 +1406,7 @@ describe('mongodb connector', function() {
             options,
             function(err, updatedusers) {
               should.exist(err);
-              err.name.should.equal('MongoError');
+              err.name.should.equal('MongoServerError');
               err.errmsg.should.equal(
                 'The dollar ($) prefixed ' +
                 "field '$rename' in '$rename' is not valid for storage.",
@@ -2373,6 +2367,28 @@ describe('mongodb connector', function() {
           should.not.exist(post._id);
           should.not.exist(post.id);
 
+          done();
+        },
+      );
+    });
+  });
+
+  it('should allow to use filters with customized field names', function(done) {
+    const post = new PostWithStringIdAndRenamedColumns({renamedTitle: 'b', renamedContent: 'BBB'});
+    post.save(function(err, post) {
+      db.connector.all(
+        'PostWithStringIdAndRenamedColumns',
+        {fields: ['renamedTitle', 'renamedContent']},
+        {},
+        function(err, posts) {
+          should.not.exist(err);
+          posts.should.have.lengthOf(1);
+          post = posts[0];
+          post.should.have.property('renamedTitle', 'b');
+          post.should.have.property('renamedContent', 'BBB');
+          should.not.exist(post.content);
+          should.not.exist(post._id);
+          should.not.exist(post.id);
           done();
         },
       );
